@@ -220,19 +220,30 @@ while True:
             if fazer_login():
                 criar_time()
                 while True:
-                    # Submenu de gerenciamento do time
                     print("\n=== MENU DO TIME ===")
-                    print("1 - Ver time completo")
-                    print("2 - Ver chaves (do seu time)")
+                    print("1 - Adicionar jogadoras")
+                    print("2 - Deletar jogadoras")
+                    print("3 - Editar jogadoras")
+                    print("4 - Ver time completo")
+                    print("5 - Ver chaves")
                     print("0 - Sair do menu do time")
                     opcao_time = input("Escolha uma opção: ")
 
                     if opcao_time == "1":
-                        mostrar_time()
+                        adicionar_jogadoras()
                     elif opcao_time == "2":
-                        print("\n=== Suas Chaves ===")
-                        for jogo in gerar_chaves(Time['Nome']):
-                            print(jogo)
+                        deletar_jogadoras()
+                    elif opcao_time == "3":
+                        editar_jogadoras()
+                    elif opcao_time == "4":
+                        # Mostra o time completo, incluindo todas as jogadoras
+                        print("\n=== Time Atual ===")
+                        print(f"Time: {Time['Nome']}")
+                        for key in Time:
+                            if key.startswith("jogadora_"):
+                                print(f"{key}: {Time[key]['nome']} - {Time[key]['posição']}")
+                    elif opcao_time == "5":
+                        ver_chaves()
                     elif opcao_time == "0":
                         break
                     else:
