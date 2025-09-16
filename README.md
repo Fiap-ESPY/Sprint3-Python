@@ -1,91 +1,87 @@
 # ⚽ Sistema de Gerenciamento de Times e Campeonatos
 
-Este projeto é um sistema simples em Python para gerenciar **times, jogadoras e campeonatos fictícios**.  
-Ele permite que usuários criem times com até 11 jogadoras e que administradores cadastrem campeonatos e organizem as chaves.
+Projeto em **Python** para gerenciar **times, jogadoras e campeonatos fictícios**.  
+Ele simula menus de **usuários** e **administradores**, permitindo criar times, cadastrar jogadoras e organizar campeonatos.
 
 ---
 
 ## 📌 Funcionalidades
 
-### 👤 Usuário Comum
-- **Cadastro e Login** de usuário.  
-- **Criação de time** (apenas um por usuário).  
-- **Gerenciamento de jogadoras**:
-  - Adicionar até 11 jogadoras com nome e posição.
-  - Editar jogadoras existentes.
-  - Deletar jogadoras do time.
-- **Exibição do time** completo.
-- **Visualização de chaves de jogos fictícias** (com o time do usuário incluído).
+### 👤 Usuário
+- Cadastrar conta.  
+- Fazer login.  
+- Criar **um time** por usuário.  
+- Gerenciar jogadoras:  
+  - Adicionar até **11 jogadoras** (nome e posição).  
+  - Editar ou remover jogadoras existentes.  
+- Visualizar o **time completo**.  
+- Ver as **chaves de campeonatos** fictícias.
 
 ### 🛠️ Administrador
-- **Login com credenciais fixas** (`admin:123`).  
-- **Gerenciamento de campeonatos**:
-  - Criar campeonatos.
-  - Listar campeonatos existentes.
-  - Visualizar as chaves de um campeonato específico.
+- Login com credenciais fixas (`admin / 123`).  
+- Criar campeonatos.  
+- Listar campeonatos já criados.  
+- Ver as chaves de um campeonato específico.
 
 ---
 
 ## 📂 Estrutura do Código
 
-- `admin`: dicionário com credenciais do administrador.  
-- `usuarios`: dicionário com usuários cadastrados.  
-- `Time`: dicionário que armazena o nome do time e suas jogadoras.  
-- `campeonatos`: lista de campeonatos criados.  
+O sistema foi dividido em **módulos simples** para facilitar a leitura:
 
-### Principais Funções
-- `cadastrar()` → Cadastra um novo usuário.  
-- `fazer_login()` → Login de usuário comum.  
-- `login_admin()` → Login do administrador.  
-- `criar_time()` → Cria o time do usuário.  
-- `adicionar_jogadoras()` → Adiciona jogadoras ao time.  
-- `editar_jogadoras()` → Edita jogadoras existentes.  
-- `deletar_jogadoras()` → Remove jogadoras do time.  
-- `mostrar_time()` → Mostra o time completo.  
-- `gerar_chaves()` → Gera confrontos fictícios.  
-- `criar_campeonato()` → Cria novo campeonato.  
-- `ver_campeonatos()` → Lista campeonatos criados.  
-- `ver_chaves_campeonato()` → Exibe chaves de um campeonato específico.  
+- `login/` → Funções de cadastro e login (`cadastrar`, `fazer_login`, `login_admin`).  
+- `jogadoras/` → Funções de gerenciamento do time (`criar_time`, `adicionar_jogadoras`, `editar_jogadoras`, `deletar_jogadoras`).  
+- `campeonatos/` → Funções para criar e visualizar campeonatos (`criar_campeonato`, `ver_campeonatos`, `ver_chaves`, `ver_chaves_campeonato`).  
+- `main.py` → Ponto de entrada do programa com os **menus principais**.
+
+### Principais Funções do `main.py`
+- `main()` → Inicia o programa exibindo o menu principal.  
+- `menu_usuario()` → Fluxo para usuários comuns.  
+- `menu_time()` → Opções para gerenciar o time.  
+- `menu_admin()` → Opções para administradores.  
+- `mostrar_time()` → Exibe o time e suas jogadoras.  
+- `pedir_opcao()` → Valida a entrada de menus (ajuda a evitar erros de digitação).  
 
 ---
 
 ## 🚀 Como Executar
 
-1. Certifique-se de ter o **Python 3.x** instalado.  
-2. Salve o código em um arquivo, por exemplo: `main.py`.  
-3. No terminal, execute:
+1. Instale o **Python 3.x**.  
+2. Clone este repositório ou baixe os arquivos.  
+3. No terminal, dentro da pasta do projeto, execute:
 
 ```bash
 python main.py
-Use o menu principal para escolher entre:
-Entrar como usuário.
-Entrar como administrador.
-Encerrar o programa.
+```
 
+Você verá o **menu principal** com três opções:  
+1. Entrar como usuário.  
+2. Entrar como administrador.  
+0. Sair.  
+
+---
+
+## 🔑 Credenciais do Administrador
+
+```text
+Usuário: admin
+Senha: 123
 ```
 
 ---
 
- ##  🔑 Credenciais do Administrador
-    Usuário: admin
-    Senha: 123
+## 📌 Observações Importantes
+- Cada usuário só pode ter **um time**.  
+- Máximo de **11 jogadoras** por time.  
+- Dados (usuários, times e campeonatos) são **armazenados apenas em memória**.  
+  - Ou seja, ao encerrar o programa, tudo é perdido.  
+- Futuramente, pode ser expandido para **arquivos** ou **banco de dados**.
 
 ---
 
-##  📌 Observações
-- Cada usuário pode criar apenas um time.
-
-- O limite máximo de jogadoras por time é 11.
-
-- Os campeonatos criados são armazenados apenas em memória (serão apagados ao encerrar o programa).
-
-- O projeto pode ser expandido para salvar dados em arquivos ou um banco de dados.
-
---- 
-
 ## 👨‍💻 Autores
-- Beatriz Cortez - RM561431
-- Bruno Alves - RM563986
-- Gabriel Augusto - RM564126
-- Gustavo Moura - RM566190
-- Pedro Henrique - RM563281
+- Beatriz Cortez - RM561431  
+- Bruno Alves - RM563986  
+- Gabriel Augusto - RM564126  
+- Gustavo Moura - RM566190  
+- Pedro Henrique - RM563281  
